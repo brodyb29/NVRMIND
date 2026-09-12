@@ -1,28 +1,414 @@
-body {
+/* =========================
+   NVRMIND
+   BUILT DIFFERENT.
+========================= */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-h1 {
-    font-size: 50px;
-    margin-top: 100px;
+html {
+    scroll-behavior: smooth;
 }
-
-p {
-    font-size: 20px;
-    color: #ccc;
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
-
+a {
+    color: inherit;
+    text-decoration: none;
+}
 button {
-    margin-top: 20px;
-    padding: 15px 35px;
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 8px;
+    font-family: inherit;
+}
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+.nav-logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+.navbar nav a {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+.navbar nav a:hover {
+    opacity: 1;
+}
+.nav-button {
+    border: 1px solid #fff;
+    padding: 11px 18px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+.nav-button:hover {
+    background: #fff;
+    color: #050505;
+}
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 8% 80px;
+    overflow: hidden;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 55%;
+}
+.eyebrow,
+.small-title {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    opacity: 0.55;
+    margin-bottom: 22px;
+}
+.hero h1 {
+    font-size: clamp(70px, 11vw, 170px);
+    line-height: 0.8;
+    letter-spacing: -8px;
+    font-weight: 950;
+    margin-bottom: 35px;
+}
+.hero h1 span,
+.statement h2 span,
+.about h2 span,
+.final-cta h2 span {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+.hero-text {
+    max-width: 350px;
+    color: #999;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    background: #fff;
+    color: #050505;
+    padding: 17px 24px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+.primary-button span {
     font-size: 18px;
-    font-weight: bold;
+    transition: 0.3s;
+}
+.primary-button:hover {
+    transform: translateY(-4px);
+}
+.primary-button:hover span {
+    transform: translateX(5px);
+}
+.hero-image {
+    position: absolute;
+    right: 4%;
+    top: 18%;
+    width: 43%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 10%;
+    border: 1px solid #222;
+    transform: rotate(6deg);
+}
+.hero-image img {
+    width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(100%);
+}
+.scroll-text {
+    position: absolute;
+    bottom: 35px;
+    left: 8%;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.4;
+}
+/* =========================
+   STATEMENT
+========================= */
+.statement {
+    min-height: 80vh;
+    padding: 150px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid #181818;
+}
+.statement h2 {
+    font-size: clamp(50px, 8vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    margin-bottom: 40px;
+}
+.statement > p:last-child {
+    max-width: 470px;
+    color: #888;
+    line-height: 1.8;
+    font-size: 15px;
+}
+/* =========================
+   SHOP
+========================= */
+.shop {
+    padding: 130px 8%;
+    border-top: 1px solid #181818;
+}
+.section-heading {
+    margin-bottom: 60px;
+}
+.section-heading h2 {
+    font-size: clamp(45px, 7vw, 100px);
+    letter-spacing: -4px;
+    line-height: 0.9;
+}
+.product-card {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    min-height: 550px;
+    border: 1px solid #202020;
+}
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: #090909;
+}
+.product-image img {
+    max-width: 80%;
+    max-height: 450px;
+    object-fit: contain;
+    filter: grayscale(100%);
+}
+.product-info {
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #202020;
+}
+.product-number {
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    margin-bottom: 50px;
+}
+.product-info h3 {
+    font-size: 45px;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+.product-info > p:not(.product-number) {
+    color: #888;
+    margin-bottom: 45px;
+}
+.product-button {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #444;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+/* =========================
+   ABOUT
+========================= */
+.about {
+    padding: 150px 8%;
+    border-top: 1px solid #181818;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+.about h2 {
+    font-size: clamp(55px, 7vw, 110px);
+    line-height: 0.88;
+    letter-spacing: -5px;
+}
+.about-text {
+    max-width: 450px;
+    align-self: end;
+}
+.about-text p {
+    color: #888;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+/* =========================
+   FINAL CTA
+========================= */
+.final-cta {
+    min-height: 85vh;
+    padding: 120px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 1px solid #181818;
+}
+.final-cta h2 {
+    font-size: clamp(70px, 12vw, 180px);
+    line-height: 0.78;
+    letter-spacing: -9px;
+    margin-bottom: 55px;
+}
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding: 60px 8% 30px;
+    border-top: 1px solid #181818;
+}
+.footer-logo {
+    font-size: 45px;
+    font-weight: 950;
+    letter-spacing: -3px;
+    margin-bottom: 8px;
+}
+footer > p {
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.4;
+}
+.footer-bottom {
+    margin-top: 70px;
+    padding-top: 20px;
+    border-top: 1px solid #181818;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    letter-spacing: 2px;
+    opacity: 0.35;
+}
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 22px 6%;
+    }
+    .navbar nav {
+        display: none;
+    }
+    .nav-button {
+        padding: 9px 13px;
+    }
+    .hero {
+        min-height: 900px;
+        padding: 130px 7% 70px;
+        align-items: flex-start;
+    }
+    .hero-content {
+        width: 100%;
+    }
+    .hero h1 {
+        font-size: 78px;
+        letter-spacing: -5px;
+    }
+    .hero-image {
+        top: 48%;
+        right: 0;
+        width: 100%;
+        height: 40%;
+    }
+    .hero-image img {
+        width: 65%;
+    }
+    .scroll-text {
+        display: none;
+    }
+    .statement,
+    .shop,
+    .about,
+    .final-cta {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+    .statement {
+        min-height: 650px;
+    }
+    .statement h2 {
+        font-size: 55px;
+        letter-spacing: -3px;
+    }
+    .product-card {
+        grid-template-columns: 1fr;
+    }
+    .product-image {
+        min-height: 350px;
+    }
+    .product-info {
+        border-left: none;
+        border-top: 1px solid #202020;
+        padding: 45px 30px;
+    }
+    .about {
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+    .about h2 {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+    .final-cta {
+        min-height: 650px;
+    }
+    .final-cta h2 {
+        font-size: 80px;
+        letter-spacing: -5px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
